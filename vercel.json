@@ -1,0 +1,19 @@
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/firms/(.*)",
+      "destination": "/api/firms?path=$1"
+    },
+    {
+      "source": "/keycheck",
+      "destination": "/api/keycheck"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
