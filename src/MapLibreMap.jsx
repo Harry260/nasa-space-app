@@ -1,6 +1,11 @@
 import { useEffect, useRef } from 'react'
 import * as maplibregl from 'maplibre-gl'
+import maplibreglWorker from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 import { SENSORS, REGIONS } from './api'
+
+if (typeof window !== 'undefined' && maplibregl.setWorkerUrl) {
+  maplibregl.setWorkerUrl(maplibreglWorker)
+}
 
 function toGeoJson(rows, sensorKey) {
   return {
